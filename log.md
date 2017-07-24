@@ -1,6 +1,6 @@
-#LYK 2017 Log
+# LYK 2017 Log
 
-##1. Gün (21 Temmuz) 
+## 1. Gün (21 Temmuz) 
 * install `rvm` from http://rvm.io/
     * `gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB`
 
@@ -10,7 +10,7 @@
 * `rvm alias create default 2.4.0` then `rvm use default`
 
 
-##2. Gün (22 Temmuz)
+## 2. Gün (22 Temmuz)
 
 * Ruby gems (https://rubygems.org/)
 * Interactive ruby `irb`
@@ -61,7 +61,7 @@ hello "as", "df", 22
 
 
 
-##3. Gün (23 Temmuz)
+## 3. Gün (23 Temmuz)
 * Pry
 * Documentations
 * Data Types
@@ -151,7 +151,7 @@ hello "as", "df", 22
         ```
 
 
-##4. Gün (24 Temmuz)
+## 4. Gün (24 Temmuz)
 * Conditional Statements
     * `if, else, elsif`
         ```ruby
@@ -230,28 +230,28 @@ hello "as", "df", 22
 
 
 
-##5. Gün (25 Temmuz)
+## 5. Gün (25 Temmuz)
 
-##6. Gün (26 Temmuz)
+## 6. Gün (26 Temmuz)
 
-##7. Gün (27 Temmuz)
+## 7. Gün (27 Temmuz)
 
-##8. Gün (28 Temmuz)
+## 8. Gün (28 Temmuz)
 
-##9. Gün (29 Temmuz)
+## 9. Gün (29 Temmuz)
 
-##10. Gün (30 Temmuz)
+## 10. Gün (30 Temmuz)
 
-##11. Gün (31 Temmuz)
+## 11. Gün (31 Temmuz)
 
-##12. Gün (1 Ağustos)
+## 12. Gün (1 Ağustos)
 
-##13. Gün (2 Ağustos)
+## 13. Gün (2 Ağustos)
 
-##14. Gün (3 Ağustos)
+## 14. Gün (3 Ağustos)
 
-##15. Gün (4 Ağustos)
+## 15. Gün (4 Ağustos)
 
-##16. Gün (5 Ağustos)
+## 16. Gün (5 Ağustos)
 
 
