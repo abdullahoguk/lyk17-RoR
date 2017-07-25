@@ -226,11 +226,252 @@ hello "as", "df", 22
     :select, :slice_before, :sort, :sort_by, :take, :take_while, :to_a, :to_h, :zip]
     ```
 
+* Loops
+* Error Handling
+* **Blocks** (do ... end {} like anonymous function)
+    * Everything is object in ruby but blocks are not. so we cannot assign blocks to a variable 
+    * 
+    ```ruby
+        def topla(a, b) a+b end
+        topla(3,5)   # => 8
+
+        topla = {|a, b| a+b } #SyntaxError...
+    ```
+    * **lambda** and **proc** are object versions of **block** we can use them when assigning
+    ```ruby
+        topla = lambda {|a, b| a+b }
+
+    ```
+    * metodu proca cevir, arraye at, bir stringde bu metotların hepsini birere biren cagır
+    ```ruby
+    # converting methods to proc
+    def topla(a,b) a+b end
+    method(:topla).to_proc
+    
+
+    yazdır = -> a {puts a}
+    cizdir = -> a {puts "-----#{a}:)"}
+    buyut = -> a {puts a.upcase}
+    methods = [yazdır,cizdir,buyut]
+
+    methods.each {|proc| proc.call "test"}
+    #Output>>>
+    #   test
+    #   -----test:)
+    #   TEST
+    ```
+    * passing **proc** to a function
+    ```ruby
+    def hesapla(s1, s2, islem)
+      islem.call(s1, s2)
+    end
+
+    toplam = hesapla(3, 5, lambda {|a, b| a+b})  # => 8 
+    fark   = hesapla(3, 5, lambda {|a, b| a-b})  # => -2
+    carpma = hesapla(3, 5, lambda {|a, b| a*b})  # => 15
+    bolme  = hesapla(3, 5, lambda {|a, b| a/b})  # => 0
+ 
+    # toplam equals to
+    topla = lambda {|a, b| a+b}
+    topla.call(3,5)
+    ```
+    * passing **block** to a function
+    ```ruby
+    def hesapla(s1, s2, &islem)
+        islem.call(s1, s2)
+    end
+
+    toplam = hesapla(3, 5) {|a, b| a+b}  # => 8
+    fark   = hesapla(3, 5) {|a, b| a-b}  # => -2
+    carpma = hesapla(3, 5) {|a, b| a*b}  # => 15
+    bolme  = hesapla(3, 5) {|a, b| a/b}  # => 0
+    ```
+* **Classes** inheritable (Inheritence)
+    * 
+    ```ruby
+        class Device
+    end
+    ```
+    
+    * OOP
+    ```ruby
+    class Canli
+        def breathe;end
+        def breed;end
+    end
+    
+    class Hayvan < Canli
+        def hunt;end
+    end
+
+    class Mammal < Hayvan
+        def birth;end
+    end
+
+    class Human < Mammal
+        def initialize(name, surname, gender)
+            @name = name
+            @surname = surname
+            @gender = gender
+        end            
+        
+        def speak;end
+        def think;end
+        def know_thyself;end
+    end
+
+    # Instances
+    serdar = Human.new
+    serdar.think
+    serdar.speak
+    
+    serdar.name #...
+    ```
+
+    * All vars in instances are private by default
+    * Getter setter methods
+    * multiple inheritence not allowed. Use modules instead (Composition over inheritence) 
+    * Macro (kod yazan kod, class_eval, instance_eval, eval), meta programming ...
+    * sınıf Metotları (sınıfa özel)
+    * Classları ve modülleri yeniden açıp kapama !!! (Mindblown)
+    ```ruby
+        class String
+            def selamun_aleykum
+                puts "SA Ruby çok güzel"
+            end
+        end
+        
+        "Test".selamun_aleykum
+        # > SA Ruby çok güzel
+        
+        # duplicate a function with different name
+        class Array
+            alias_method :kere, :each
+        end
+        
+        [1,"tr"].kere do |item| prints item.class
+        end 
+        # >>
+        # Integer
+        # String  
+    ```
+
+    * Inheritence
 
 
 
 
 ## 5. Gün (25 Temmuz)
+* **Modules** Includable (Composition)
+    * `bundle gem gemName` intializes a gem
+    * Multiple inheritence can be achieved by modules
+    * Module names are constants
+    * 
+    ```ruby
+    module MyModule
+        SABIT = 26
+        class A; end
+        
+        module Module2
+        end
+    end
+    
+    MyModule::SABIT
+    MyModule::A.new
+    MyModule::Module2
+    ```
+    * Methods
+    * Module methods
+    ```ruby
+        module MyModule
+            def self.myMethod() puts "Module Method" end
+        end
+        
+        #Or
+        module MyModule2
+            def myMethod2() puts "Module Method 2" end
+
+            module_function :myMethod2
+        end
+
+        MyModule.myMethod
+        MyModule2.myMethod2
+    ```
+    * `include` (Ancestors can be Module or a Class)
+    ```ruby
+        module Behavior
+            def say_hi() "Hello" end
+        end
+
+        class Person
+            include Behavior
+        end
+
+        Person.new.say_hi  # => "Hello"
+
+        ## ANCESTORS
+
+        puts Person.ancestors
+
+        ##>>
+        # Person
+        # Behavior
+        # Object
+        # PP::ObjectMixin
+        # Kernel
+        # BasicObject
+
+    
+        puts Person.ancestors.map {|a| a.class}
+
+        ##>>
+        # Class
+        # Module
+        # Class
+        # Module
+        # Module
+        # Class
+    ```
+    * `prepend`
+    * `extend`
+
+* **File Operations** (`File` Class) 
+    ```ruby
+        File.open('hello', 'w') do |dosya|
+          dosya.print "Hello World!"
+        end
+    ```
+
+    * Modes
+    * `close` ruby automatically closes file when block is given (close ! is important) 
+    * write
+    * read
+    * csv
+    
+* **Date and time** operations
+    * Time new
+    * 
+    ```ruby
+        Time.new.tuesday? # >true ....
+        
+    ```
+    * Date
+    * DateTime
+
+* Ruby Toolbox - best most used gems by categories (https://www.ruby-toolbox.com/)
+* CodeWars - training, challenges, practice... (https://www.codewars.com/)
+* Exercism (http://exercism.io)
+* TDD (Test !!!)
+* Continuous integretion (TravisCI)
+* `rspec`
+    1) `bundle init`
+    2) add `gem "rspec"` to gemfile
+    3) `bundle`
+    4) `rspec --init`
+    5) `bundle exec rspec` runs test
+    6) code files will be in `/lib` directory (myFile.rb)
+    7) test file will be in `/spec` directory (myFile_spec.rb) and add `require "myFile"` to top 
+
 
 ## 6. Gün (26 Temmuz)
 
