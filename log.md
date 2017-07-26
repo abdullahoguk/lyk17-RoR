@@ -73,6 +73,7 @@ hello "as", "df", 22
 * Regex
     * `=~` or `match`
     * Sources
+        * Learn regex the easy way https://github.com/zeeshanu/learn-regex
         * http://regexr.com/
         * http://emailregex.com/
         * http://rubular.com/
@@ -463,7 +464,7 @@ hello "as", "df", 22
 * Exercism (http://exercism.io)
 * TDD (Test !!!)
 * Continuous integretion (TravisCI)
-* `rspec`
+* `rspec` Test ( http://rspec.info/)
     1) `bundle init`
     2) add `gem "rspec"` to gemfile
     3) `bundle`
@@ -474,6 +475,80 @@ hello "as", "df", 22
 
 
 ## 6. Gün (26 Temmuz)
+* Testing with RSpec continued (https://github.com/sdogruyol/calculator-tdd)
+    * exampe code `calculator.rb`
+
+        ```ruby
+            class NotANumberError < StandardError
+            end
+            
+            class DivededByZero  < StandardError
+            end
+
+            class Calculator
+                def topla(sayi1, sayi2)
+                    fail NotANumberError unless [sayi1,sayi2].all? {|sayi| sayi.is_a?(Fixnum)}
+                    sayi1 + sayi2
+                end
+
+                def bol(sayi1, sayi2)
+                    fail NotANumberError unless [sayi1,sayi2].all? {|sayi| sayi.is_a?(Fixnum)}
+                    fail DivededByZero if sayi2 == 0
+                    sayi1 / sayi2
+                end
+            end
+        ```
+
+    * Example test file `calculator_spec.rb`
+        ```ruby
+            require "calculator"
+            RSpec.describe Calculator do 
+                context "#topla" do
+                    
+                    it "returns sum of two nums" do
+                        calculator = Calculator.new
+                        expect(calculator.topla(3, 5)).to eq 8
+                    end
+
+                    it "rises when inputs are not a number" do
+                        calculator = Calculator.new
+                        expect{calculator.topla("sa", 5)}.to raise_error(NotANumberError)
+                    end
+                end
+
+                context "#bol" do
+                    
+                    it "returns division of two nums" do
+                        calculator = Calculator.new
+                        expect(calculator.bol(7, 3)).to eq 2
+
+                    end
+
+                    it "rises when inputs are not a number" do
+                        calculator = Calculator.new
+                        expect{calculator.bol("sa", 5)}.to raise_error(NotANumberError)
+                    end
+
+                    it "rises when dividing zero" do
+                        calculator = Calculator.new
+                        expect{calculator.bol(13, 0)}.to raise_error(DivededByZero)
+                    end
+                end
+            end
+        ```
+    * Rspec shared examples (https://relishapp.com/rspec/rspec-core/docs/example-groups/shared-examples)
+    * Rails RSpec examples (https://github.com/eliotsykes/rspec-rails-examples)
+
+* Random 
+    * number (0-100) `(rand*100).round`  
+    * string `[*"a".."z"].shuffle.first(6).join`
+* splat operator * `[*1..100]`
+
+* hook life cycle (before after) at_exit
+* git + hub (https://github.com/github/hub)
+
+
+
 
 ## 7. Gün (27 Temmuz)
 
