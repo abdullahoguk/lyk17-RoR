@@ -1,0 +1,20 @@
+<h1 class="pageTitle BrandsTitle">All Brands</h1>
+<%= link_to 'Home', controller: 'welcome' %>
+<%= link_to 'New Brand', new_brand_path %>
+ 
+<div class="brandListContainer">
+  <div class = "listHead">
+    <div>Title</div>
+    <div>Text</div>
+    <div>Show</div>
+
+  </div>
+ 
+  <% @brands.each do |brand| %>
+    <div class = "listItem">
+      <div><%= brand.name %></div>
+      <div><%= brand.description %></div>
+      <div><%= link_to 'Show', brand_path(brand) %></div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<%= link_to 'Home', controller: 'welcome' %>
+<%= link_to 'All Brands', brands_path %>
+<%= link_to 'New Brand', new_brand_path %>
+<div class="viewHead">
+	<p class="label"><strong>Brand Name: </strong></p>
+	<p class="brandName">
+  		<%= @brand.name %>
+	</p>
+</div>
+ 
+ <div class="description">
+ 	<p class= "label"><strong>Description:</strong></p> 
+ 	<p><%= @brand.description %></p>
+ </div>
+ 
+

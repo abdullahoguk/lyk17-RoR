@@ -1,6 +1,9 @@
 # LYK 2017 Log
 
-## 1. Gün (21 Temmuz) 
+## 1. Gün (21 Temmuz)
+* Documentation
+    * Free ruby books (https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#ruby)
+
 * install `rvm` from http://rvm.io/
     * `gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB`
 
@@ -58,8 +61,6 @@ hello "as", "df", 22
     * `bundle install`
     
 * 
-
-
 
 ## 3. Gün (23 Temmuz)
 * Pry
@@ -546,11 +547,158 @@ hello "as", "df", 22
 
 * hook life cycle (before after) at_exit
 * git + hub (https://github.com/github/hub)
+* ...and **Ruby on Rails**
+    * Rails Guides (http://guides.rubyonrails.org/getting_started.html)
+    * Blog (https://github.com/Lyk2017RoR/lyk2017-blog)
+        * `rails new blog` `cd blog`
+        * `bundle`
+        * `rails s`
+        * App hierarchy
+        ```
+            .
+            ├── app
+            │   ├── assets
+            │   │   ├── config
+            │   │   │   └── manifest.js
+            │   │   ├── images
+            │   │   ├── javascripts
+            │   │   │   ├── application.js
+            │   │   │   ├── cable.js
+            │   │   │   └── channels
+            │   │   └── stylesheets
+            │   │       └── application.css
+            │   ├── channels
+            │   │   └── application_cable
+            │   │       ├── channel.rb
+            │   │       └── connection.rb
+            │   ├── controllers
+            │   │   ├── application_controller.rb
+            │   │   └── concerns
+            │   ├── helpers
+            │   │   └── application_helper.rb
+            │   ├── jobs
+            │   │   └── application_job.rb
+            │   ├── mailers
+            │   │   └── application_mailer.rb
+            │   ├── models
+            │   │   ├── application_record.rb
+            │   │   └── concerns
+            │   └── views
+            │       └── layouts
+            │           ├── application.html.erb
+            │           ├── mailer.html.erb
+            │           └── mailer.text.erb
+            ├── bin
+            │   ├── bundle
+            │   ├── rails
+            │   ├── rake
+            │   ├── setup
+            │   ├── spring
+            │   ├── update
+            │   └── yarn
+            ├── config
+            │   ├── application.rb
+            │   ├── boot.rb
+            │   ├── cable.yml
+            │   ├── database.yml
+            │   ├── environment.rb
+            │   ├── environments
+            │   │   ├── development.rb
+            │   │   ├── production.rb
+            │   │   └── test.rb
+            │   ├── initializers
+            │   │   ├── application_controller_renderer.rb
+            │   │   ├── assets.rb
+            │   │   ├── backtrace_silencers.rb
+            │   │   ├── cookies_serializer.rb
+            │   │   ├── filter_parameter_logging.rb
+            │   │   ├── inflections.rb
+            │   │   ├── mime_types.rb
+            │   │   └── wrap_parameters.rb
+            │   ├── locales
+            │   │   └── en.yml
+            │   ├── puma.rb
+            │   ├── routes.rb
+            │   ├── secrets.yml
+            │   └── spring.rb
+            ├── config.ru
+            ├── db
+            │   └── seeds.rb
+            ├── Gemfile
+            ├── Gemfile.lock
+            ├── lib
+            │   ├── assets
+            │   └── tasks
+            ├── log
+            ├── package.json
+            ├── public
+            │   ├── 404.html
+            │   ├── 422.html
+            │   ├── 500.html
+            │   ├── apple-touch-icon.png
+            │   ├── apple-touch-icon-precomposed.png
+            │   ├── favicon.ico
+            │   └── robots.txt
+            ├── Rakefile
+            ├── README.md
+            ├── test
+            │   ├── application_system_test_case.rb
+            │   ├── controllers
+            │   ├── fixtures
+            │   │   └── files
+            │   ├── helpers
+            │   ├── integration
+            │   ├── mailers
+            │   ├── models
+            │   ├── system
+            │   └── test_helper.rb
+            ├── tmp
+            │   └── cache
+            │       └── assets
+            └── vendor
 
-
-
+        ```
+    * `rails generate controller Welcome index` (functions, submit ...)
+    * `rails g controller Articles` (rendering content form...)
+    * `rails g model Article title:string text:text` (resource, model, data...)
+    * `rails db:migrate`
+    * `rails console` > `Article.last`
 
 ## 7. Gün (27 Temmuz)
+* Rails continued
+    * MVC
+        * Model
+        * View
+        * Controller
+        
+    * CRUD
+    * Resources
+    * Actions
+
+    * Active Record 
+        * ORM
+        * Convention over configuration
+            * Naming conventions 
+                **Model/Class: ** Article, Person >> **Table / Schema: ** articles, people
+            *  
+            ```ruby
+                user = User.create(name: "David", occupation: "Code Artist")` #creates and adds to db
+                
+                # other way
+                user = User.new
+                user.name = "David"
+                user.occupation = "Code Artist"
+                user.save
+
+            ```
+            * Create: `create` or `new + save`
+            * Read: `find`, `find_by` or `where`
+            * Update `find_by` + `save` or `find_by` + `save`
+            * Delete `find_by` + `destroy`
+        * Migration
+            `rails g migration AddCategoryToProduct category:references` or `rails g migration AddNameToProduct name:string`
+
+            
 
 ## 8. Gün (28 Temmuz)
 

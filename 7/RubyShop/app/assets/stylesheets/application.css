@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+ 	margin:0;
+ 	padding:0;
+ }
+
+body{
+	background-color: #004d4d;
+}
+.viewHead{
+	display: flex;
+	align-items: center;
+	margin: auto;
+}
+
+.description{
+	display: flex;
+	flex-direction: column;
+}
+
+.label{
+	font-size: 1.8em;
+	color:teal;
+}
+
+.brandName {
+	font-size: 2em;
+}
+
+
+/* Brand List*/
+.BrandsTitle{
+	text-align: center;
+	background-color: #003434;
+	color: white;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.brandListContainer{
+	display:flex;
+	flex-direction:column;
+	width: 90%;
+	margin:auto;
+}
+
+.brandListContainer .listHead{
+	display: flex;
+	justify-content: space-around;
+	font-weight: 600;
+	font-size: 1.5em;
+	color: #80ffff;
+	border-bottom: 1px grey solid;
+	padding-top: 1em;
+	padding-bottom: .3em;
+	background-color: #004d4d;
+}
+
+.brandListContainer .listItem {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px grey solid;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: #bbffff;
+}
+
+.brandListContainer .listItem:hover {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px grey solid;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: #bbffff;
+	background-color: #00a7a7;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+
