@@ -665,7 +665,7 @@ hello "as", "df", 22
     * `rails console` > `Article.last`
 
 ## 7. Gün (27 Temmuz)
-* Rails continued
+* Rails continued (k)
     * MVC
         * Model
         * View
@@ -701,10 +701,67 @@ hello "as", "df", 22
             
 
 ## 8. Gün (28 Temmuz)
+* **Git** https://vigo.gitbooks.io/git-puf-noktalari/content/ (vigo)
+    * config
+        * `git config --global user.name "Yor Name"`
+        * `git config --global user.email "email@address.com"
+    * Show user info `git config user.name` and `git config user.email`
+    * Help `git help commandName`
+    * Handle multi os newline method :for Linux >>`git config --global  core.autocrlf input`
+    * Create a repo`git init projectName` or inside folder `git init`
+    * Configure default text editor `git config --global core.editor "xed -w"`
+    * Show status `git status`
+    * Track untracked files `git add file.txt` or track all >> `git add .`
+    * Remove
+    * create alias `git config --global alias.co checkout` `git co` == `git checkout`
+    * Status: Staged >> Modified >> Commited
+    * Git commands for everyday use `git help everyday`
+    * `.gitignore` file `!` means dont ignore
+    * Branch
+        * List `git branch`
+        * Create `git branch branchName`
+        * Switch `git checkout branchName`
+        * Merge (fat-forward, recursive)
+        * Conflicts(ours, theirs, manual) 
+            `git checkout theirs`
+    * Commit messeges should be in present tense
+* Bash 
+* https://speakerdeck.com/vigo/rubyi-taniyalim
+    
 
 ## 9. Gün (29 Temmuz)
+* Rails Continued (utku kaynar)
+* Journal
+    * User stories
+    * DB Design
+    * Code
+        * Create project
+        * `bundle`
+        * `rails db:setup`
+        * Create User Model `rails generate model User email password role:integer`
+        * `rails db:migrate`
+        * Add Description `rails g annotate:install` and `bundle exec annotate`
+        * Create Profile model and refrence to User model `rails generate model Profile gravatar first_name last_name user:references`
+        * add `has_one :profile` and `accepts_nested_attributes_for :profile` to `user.rb`
+        * Create User
+            * `c = User.new(email:"asdf",password:"123",role:1)` then `c.save`
+            * `User.create(email:"mail",password:"12345",role:1)`
+        * Create Profile `c.create_profile(first_name:"abdullah", last_name:"oguk")`
+        * `c.profile` >> shows
+
+        * Create Post model `rails g model Post title body:text user:refrences status:integer slug`       
+        * Create Comment Model `rails g model Comment post:references user:references body:text status:integer`
+
+* Regex
+    * `\d` any digit
+
 
 ## 10. Gün (30 Temmuz)
+* Journal cont.
+    * Join Tables `rails g migration posts_tags_join_table`
+    
+* Markdown
+    
 
 ## 11. Gün (31 Temmuz)
 
